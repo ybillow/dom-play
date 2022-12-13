@@ -1,3 +1,45 @@
+function highlight(el){
+
+    if (el.style.backgroundColor == 'white'){// white, then turn yellow
+        el.style.backgroundColor='orange';
+    }else{// turn white
+        el.style.backgroundColor='white';
+    }
+}
+
+function myAlert (){
+    alert("i'm clicked");
+}
+
+function highlightActor(actor){
+
+    let spans = document.querySelectorAll("#play span");
+    for(const mySpan of spans){
+        if (actor == mySpan.dataset.actor){// white, then turn yellow
+            mySpan.style.backgroundColor='orange';
+        }else{// turn white
+            mySpan.style.backgroundColor='white';
+        }
+    }
+
+    //alert(actor);
+}
+
+let spans = document.querySelectorAll("#play span");
+ 
+console.log(spans);
+for(const mySpan of spans){
+    //mySpan.addEventListener("click",myAlert);
+    //alert(mySpan.dataset.actor);
+
+    mySpan.addEventListener("click", function(ev){
+        highlightActor(mySpan.dataset.actor);
+
+    });
+}
+
+
+
     //https://tinyurl.com/dynamic-html-checker
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
       
